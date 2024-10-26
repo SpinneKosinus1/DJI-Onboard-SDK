@@ -46,6 +46,7 @@ class LinuxSetup : private Setup {
   ~LinuxSetup();
 
  public:
+  using Setup::setupEnvironment;
   void setupEnvironment(int argc, char** argv);
   bool initVehicle();
 
