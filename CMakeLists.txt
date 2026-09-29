@@ -20,7 +20,7 @@
 # *
 # *
 
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 4.0)
 project(onboardsdk)
 
 set(CMAKE_VERBOSE_MAKEFILE OFF)
@@ -47,7 +47,7 @@ elseif((CMAKE_SYSTEM_PROCESSOR MATCHES "^arm*") OR (CMAKE_SYSTEM_PROCESSOR MATCH
      set(ARCH armv8)
      add_definitions(-DDJIOSDK_HARDWARE_TYPE=2)
   endif()
-elseif()
+else()
   add_definitions(-DDJIOSDK_HARDWARE_TYPE=0)
 endif()
 
@@ -66,6 +66,8 @@ if (WAYPT2_CORE)
 endif()
 
 add_subdirectory(osdk-core)
+
+#[[
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
   add_subdirectory(sample/platform/linux)
 endif()

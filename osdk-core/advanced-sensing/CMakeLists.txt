@@ -4,7 +4,7 @@
 #*  please visit https://developer.dji.com/policies/eula/
 #*
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 4.0)
 project(advanced-sensing)
 
 unset(MY_CPU_ARCH)
@@ -37,7 +37,7 @@ elseif((CMAKE_SYSTEM_PROCESSOR MATCHES "^arm*") OR (CMAKE_SYSTEM_PROCESSOR MATCH
         set(ARCH armv8)
         add_definitions(-DDJIOSDK_HARDWARE_TYPE=2)
     endif()
-elseif()
+else()
     add_definitions(-DDJIOSDK_HARDWARE_TYPE=0)
 endif()
 
